@@ -1,0 +1,13 @@
+{
+  "name": "haos",
+  "description": "HAOS (HAU Autonomous Operations Squad) — Framework completo de operação por agentes no Claude Code. 44 slash commands /haos:*, 29 subagents especializados em 8 departamentos, hooks de automação (memória persistente, fechamento de tarefa), Rito v2 (pipeline de marketing/lançamento em 13 fases) e Mega-Brain (gestão de conhecimento). Open-source by HAU Soluções Digitais.",
+  "version": "0.1.0",
+  "author": {
+    "name": "HAU Soluções Digitais",
+    "email": "gian@<INTERNAL_DOMAIN_B>",
+    "url": "https://<INTERNAL_DOMAIN_B>"
+  },
+  "homepage": "https://github.com/simtransforma/HAOS_CC",
+  "repository": "https://github.com/simtransforma/HAOS_CC",
+  "license": "MIT"
+}
