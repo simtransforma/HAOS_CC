@@ -349,7 +349,11 @@ Veja [CHANGELOG.md](CHANGELOG.md) pra histórico de versões.
 ## 🙏 Créditos
 
 - **Criado por** [Gian Marco Menegussi Scaglianti](https://github.com/simtransforma) / [HAU Soluções Digitais](https://conhecer.hausolucoes.com.br) 🇧🇷
-- **Inspiração arquitetural**: [claude-mem](https://github.com/thedotmack/claude-mem) (pattern de plugin Claude Code)
+- **Metodologias base** (referências conceituais adaptadas ao HAOS):
+  - **MEGA-BRAIN** — estrutura para organização de conhecimento, síntese e apoio a decisão
+  - **AIOS** — práticas de operação por agentes e disciplina de execução
+  - **BMAD** — organização por fases, tomada de decisão e disciplina de entrega
+- **Inspiração arquitetural** (plugin Claude Code): [claude-mem](https://github.com/thedotmack/claude-mem)
 - **Skills de terceiros incluídas**: `skill-auditor-v2` (M. Abidi / AgxntSix), `skill-creator` (Anthropic), `sprint-context-generator` (Script7), `ffuf-skill` (community)
 - **Stack base**: [Claude Code](https://claude.com/claude-code) (Anthropic)
 
