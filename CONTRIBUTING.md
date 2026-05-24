@@ -1,6 +1,6 @@
 # Contribuindo para o HAOS
 
-Obrigado pelo interesse! O HAOS é um framework open-source MIT mantido por [HAU Soluções Digitais](https://<INTERNAL_DOMAIN_B>).
+Obrigado pelo interesse! O HAOS é um framework open-source MIT mantido por [HAU Soluções Digitais](https://conhecer.<INTERNAL_DOMAIN_B>).
 
 ## Setup local
 

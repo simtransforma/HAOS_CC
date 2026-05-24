@@ -7,7 +7,7 @@
 
 **Squad autônoma de 29 agentes IA orquestrados em 8 departamentos, com 44 slash commands, memória persistente, backup automático e governança humana em pontos críticos.**
 
-*by [**HAU Soluções Digitais**](https://<INTERNAL_DOMAIN_B>) 🇧🇷*
+*by [**HAU Soluções Digitais**](https://conhecer.<INTERNAL_DOMAIN_B>) 🇧🇷*
 
 [![Plugin Claude Code](https://img.shields.io/badge/claude--code-plugin-blue?logo=anthropic)](https://claude.com/claude-code)
 [![Version](https://img.shields.io/badge/version-0.1.0-blue)](CHANGELOG.md)
@@ -342,13 +342,13 @@ Veja [CHANGELOG.md](CHANGELOG.md) pra histórico de versões.
 
 ## 📜 Licença
 
-[MIT](LICENSE) © 2026 [HAU Soluções Digitais](https://<INTERNAL_DOMAIN_B>)
+[MIT](LICENSE) © 2026 [HAU Soluções Digitais](https://conhecer.<INTERNAL_DOMAIN_B>)
 
 ---
 
 ## 🙏 Créditos
 
-- **Criado por** [Gian Marco Menegussi Scaglianti](https://github.com/simtransforma) / [HAU Soluções Digitais](https://<INTERNAL_DOMAIN_B>) 🇧🇷
+- **Criado por** [Gian Marco Menegussi Scaglianti](https://github.com/simtransforma) / [HAU Soluções Digitais](https://conhecer.<INTERNAL_DOMAIN_B>) 🇧🇷
 - **Inspiração arquitetural**: [claude-mem](https://github.com/thedotmack/claude-mem) (pattern de plugin Claude Code)
 - **Skills de terceiros incluídas**: `skill-auditor-v2` (M. Abidi / AgxntSix), `skill-creator` (Anthropic), `sprint-context-generator` (Script7), `ffuf-skill` (community)
 - **Stack base**: [Claude Code](https://claude.com/claude-code) (Anthropic)
