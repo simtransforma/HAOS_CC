@@ -1,0 +1,60 @@
+# =====================================================
+# HAOS_CC — .gitignore
+# Crítico: NUNCA commitar secrets, env, ou estado local
+# =====================================================
+
+# Secrets e env
+*.env
+**/MASTER.env
+**/_secrets/
+**/secrets/
+!.env.example
+!*.env.template
+
+# Chaves
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Node
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Editores / IDEs
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Claude Code state local (não distribui)
+.claude/
+.claude-mem/
+
+# Logs
+*.log
+logs/
+
+# Build artifacts
+dist/
+build/
+*.tsbuildinfo
+
+# OS
+.DS_Store

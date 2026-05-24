@@ -1,0 +1,20 @@
+{
+  "name": "hau-solucoes-digitais",
+  "owner": {
+    "name": "HAU Soluções Digitais",
+    "email": "gian@hausolucoes.com.br",
+    "url": "https://hausolucoes.com.br"
+  },
+  "metadata": {
+    "description": "Plugins by HAU Soluções Digitais",
+    "homepage": "https://github.com/simtransforma/HAOS_CC"
+  },
+  "plugins": [
+    {
+      "name": "haos",
+      "version": "0.1.0",
+      "source": "./",
+      "description": "HAOS (HAU Autonomous Operations Squad) — 29 subagents in 8 departments, 44 slash commands /haos:*, 19 skills, persistent memory hooks."
+    }
+  ]
+}
