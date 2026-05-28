@@ -1,5 +1,21 @@
 # CHANGELOG HAOS_CC Plugin
 
+## v0.3.0 — 2026-05-28 (TIER B PT-BR — conclusão da absorção HAOS-PADG)
+
+### Adicionadas (TIER B — 22 skills marketing adaptadas PT-BR + marca HAOS)
+Skills traduzidas pra PT-BR com stack/marca HAOS (Stripe→Yampi, Klaviyo→Mautic+Evolution,
+Apollo→manual BR, TCPA→LGPD, SMS→WhatsApp; 4 marcas HAU/EdsonBurger/SIM/Editora; autor Gian;
+GTM-K5DPXJTV padrão). Total de skills: 30 → **52**.
+
+- `product-marketing` (fundação de contexto de marca) · `copywriting` · `copy-editing` · `cro`
+- `ab-testing` · `analytics` · `schema` · `ai-seo` · `ads` · `ad-creative` · `emails`
+- `cold-email` · `churn-prevention` · `community-marketing` · `competitor-profiling`
+- `customer-research` · `content-strategy` · `marketing-ideas` · `marketing-psychology`
+- `lead-magnets` · `launch` · `design-taste-frontend` (corpo de código mantido EN, language-agnostic)
+
+### Limpeza
+- `_skill-creator-old-backup` movido de `skills/` para `.archive/` (não era pra carregar como skill).
+
 ## v0.2.0 — 2026-05-28 (HAOS-PADG Absorption)
 
 ### Adicionadas (TIER S — sem reservas)

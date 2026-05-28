@@ -1,7 +1,7 @@
 {
   "name": "haos",
-  "description": "HAOS v0.2.0 — 29 subagents + 30 skills (19 originais + 7 TIER S + 4 TIER A) + 22 skills marketing pendentes adaptacao PT-BR + integracao obsidian-logger HAOS-PADG.",
-  "version": "0.2.0",
+  "description": "HAOS v0.3.0 — 29 subagents + 52 skills (30 base + 22 marketing TIER B adaptadas PT-BR/marca HAOS) + integracao obsidian-logger HAOS-PADG.",
+  "version": "0.3.0",
   "author": {
     "name": "HAU Soluções Digitais",
     "email": "gian@hausolucoes.com.br",
