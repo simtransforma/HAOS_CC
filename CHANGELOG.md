@@ -1,5 +1,25 @@
 # CHANGELOG HAOS_CC Plugin
 
+## v0.4.0 — 2026-05-31 (TikTok skills)
+
+### Adicionadas (5 skills TikTok — Shop / Ads / Creative / BI / Tracking)
+Conhecimento operacional TikTok 2026 com foco Brasil + EUA. Origem: company-skills
+do runtime Paperclip (Hetzner), adaptadas ao padrão HAOS_CC (frontmatter `metadata`
+com version/autor/marca; wikilinks Obsidian `[[...]]` convertidos para links relativos
+`references/sources.md` e refs cruzadas em **bold**, compatíveis com Claude Code).
+Cada skill traz `SKILL.md` + `references/sources.md`. Total de skills: 52 → **57**.
+
+- `tiktok-shop-fundamentals` — seller setup (US/UK/BR/MX), fulfillment (FBT/FBM/Affiliate), take-rate real, catalog, affiliate, LIVE Shopping, Shop Ads (GMV Max), Open API, compliance.
+- `tiktok-ads-fundamentals` — Ads Manager 2026, hierarquia Campaign/AdGroup/Ad, objetivos, bidding (Max Delivery/Cost Cap/VBO), targeting, Marketing API, SKAN 4.0, Spark Ads, política BR.
+- `tiktok-creative-playbook` — anatomia 3s/hook/body/CTA, hooks PT-BR, frameworks (AIDA/PAS/BAB), UGC/creators BR, testing matrix 3-2-2, kill rules, compliance CONAR+ANVISA.
+- `tiktok-bi-metrics` — KPIs e fórmulas (CPM/CPC/ROAS/MER/Hook Rate/GMV/AOV/LTV), Marketing API Reporting, Shop Open API, ETL/schemas star, SQL, MTA/MMM.
+- `tiktok-tracking-setup` — Pixel + Events API CAPI, dedupe via event_id, EMQ 8+, ttclid/_ttp, server-side (Stape/GTM Server), partner integrations, LGPD/ANPD/consent.
+
+### Distribuição (5 runtimes HAOS)
+Mesmo SKILL.md replicado nos 5 runtimes (formato idêntico entre Claude Code / Codex /
+Hermes — verificado byte-a-byte). OpenClaw recebe via `sync-haos-skills-openclaw.sh`
+(tar para o container, sem restart). Sem colisão de nomes em nenhum destino.
+
 ## v0.3.0 — 2026-05-28 (TIER B PT-BR — conclusão da absorção HAOS-PADG)
 
 ### Adicionadas (TIER B — 22 skills marketing adaptadas PT-BR + marca HAOS)
