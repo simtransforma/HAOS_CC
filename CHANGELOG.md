@@ -1,5 +1,38 @@
 # CHANGELOG HAOS_CC Plugin
 
+## v0.5.0 — 2026-06-02 (Meta/Stape API skill)
+
+### Adicionada (1 skill — haos-meta-stape-api)
++haos-meta-stape-api skill (Meta Graph/Marketing + Stape sGTM, read-only audit).
+Skill operacional para acesso Meta Graph/Marketing API, system-user tokens do
+Business Manager, auditoria read-only de ad accounts, diagnóstico Pixel/CAPI,
+acesso Stape API e containers sGTM, sem expor segredos. Origem: máquina local do
+Gian (Xtreme3), adaptada para portabilidade entre os runtimes HAOS. Total de
+skills: 58 → **59** (após `haos-google-ads-gtm-api`, que entrou no mesmo dia).
+
+- `haos-meta-stape-api` — Meta Graph `v21.0`, variáveis de token por BM
+  (`META_TOKEN_BM01..BM13`, só NOMES), `META_APP_ID`/`META_APP_SECRET`,
+  Stape `STAPE_API_KEY` + header `X-AUTH-TOKEN`, base `https://api.app.stape.io`,
+  container Edson Burger (`efznyhks`). Specialist Routing: `dev-backend`,
+  `tracking-engineer`, `traffic-master`, `media-buyer`, `compliance-officer`.
+
+### Portabilidade (adaptação para runtimes Linux)
+- Caminho do `MASTER.env` agora runtime-aware: Windows local (Xtreme3) vs
+  Hetzner (`/opt/secrets/.env`) vs Paulo sandbox (broker de secrets, sem ler
+  MASTER direto).
+- Bootstrap `C:\Projetos\Codex_HAOS-Xtreme3` e seção Scripts `.ps1` marcados
+  explicitamente como "ambiente local Windows (Xtreme3) apenas — não disponível
+  nos runtimes Linux". Nenhum script Linux equivalente inventado.
+- Guardrails (read-only, nunca expor segredo), findings e known-environment
+  preservados intactos.
+
+### Distribuição (8 destinos / runtimes HAOS)
+Local (repo canônico) · /opt/HAOS_CC (canônica, via git pull) · Codex
+`/opt/openclaw/codex-data/skills/` · Hermes `/root/.hermes/skills/` · OpenClaw
+(via `sync-haos-skills-openclaw.sh`) · Claude Code Hetzner `/root/.claude/skills/`
+· Paperclip `/paperclip/.claude/skills/` · Paulo sandbox
+`/home/paulo/.claude/skills/`. Sem colisão de nomes (skill nova).
+
 ## v0.4.0 — 2026-05-31 (TikTok skills)
 
 ### Adicionadas (5 skills TikTok — Shop / Ads / Creative / BI / Tracking)
