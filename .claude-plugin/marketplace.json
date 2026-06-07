@@ -12,9 +12,9 @@
   "plugins": [
     {
       "name": "haos",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "source": "./",
-      "description": "HAOS (HAU Autonomous Operations Squad) — 29 subagents in 8 departments, 44 slash commands /haos:*, 59 skills ativas (30 base + 22 marketing TIER B PT-BR + 5 TikTok Shop/Ads/Creative/BI/Tracking + haos-google-ads-gtm-api + haos-meta-stape-api Meta Graph/Marketing + Stape sGTM read-only audit), hooks persistent memory + obsidian-logger ready."
+      "description": "HAOS (HAU Autonomous Operations Squad) — 29 subagents in 8 departments, 44 slash commands /haos:*, 66 skills ativas (30 base + 22 marketing TIER B PT-BR + 5 TikTok Shop/Ads/Creative/BI/Tracking + haos-google-ads-gtm-api + haos-meta-stape-api Meta Graph/Marketing + Stape sGTM read-only audit + 6 core research/memory + haos-hetzner-map mapa completo do servidor Hetzner), hooks persistent memory + obsidian-logger ready."
     }
   ]
 }

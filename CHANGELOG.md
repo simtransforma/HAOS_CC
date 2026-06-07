@@ -1,5 +1,35 @@
 # CHANGELOG HAOS_CC Plugin
 
+## v0.6.0 — 2026-06-07 (mapa do servidor Hetzner)
+
+### Adicionada (1 skill — haos-hetzner-map)
++haos-hetzner-map skill (mapa completo do servidor Hetzner). Skill de referência
+"leia antes de agir" sobre o servidor único de produção `<SERVER_IP>`
+(`ubuntu-32gb-hel1-1`). Construída a partir de varredura read-only ao vivo via SSH
+(estado REAL, não de memória). Total de skills no repo: **66** (59 anteriores
++ 6 core research/memory trazidas pelo commit 4756361 + esta).
+
+- `haos-hetzner-map` — host (Ubuntu 24.04, 8 vCPU, 30 GiB RAM, disco 78%),
+  inventário dos **40 containers** Docker por stack (n8n, Paperclip, OpenClaw,
+  Painel HAOS, Mautic, Evolution, Typebot/MinIO, HAU Tasks, SIM/dashboards,
+  Edsonburger/landing pages, RAG-SIM/infra base), **5 runtimes de IA**
+  (Claude Code, Codex, Hermes, OpenClaw, Paperclip — com aviso de que Codex e
+  Hermes são CLI, NÃO containers; Codex roda no harness OpenClaw, sem binário em
+  /usr/local/bin), rede/exposição (Traefik vs Cloudflare Tunnel, só 22/80/443
+  públicas), domínios→container, bancos (postgres user=admin, agent-memory-pg
+  com pgvector), paths-chave em /opt e /root, systemd timers, cron, firewall
+  (UFW + iptables owner-match da sandbox Paulo), backups, camadas de segurança
+  (broker de secrets, sandbox Paulo, SafeLine WAF, fail2ban) e 12 regras
+  operacionais. Specialist Routing: `devops`, `dev-backend`/`dev-frontend`,
+  `chuck-norris`.
+
+### Distribuição (8 destinos / runtimes HAOS)
+Local (repo canônico) · /opt/HAOS_CC (canônica, via git pull) · Codex
+`/opt/openclaw/codex-data/skills/` · Hermes `/root/.hermes/skills/` · OpenClaw
+(via `sync-haos-skills-openclaw.sh`) · Claude Code Hetzner `/root/.claude/skills/`
+· Paperclip `/paperclip/.claude/skills/` · Paulo sandbox
+`/home/paulo/.claude/skills/`. Sem colisão de nomes (skill nova).
+
 ## v0.5.0 — 2026-06-02 (Meta/Stape API skill)
 
 ### Adicionada (1 skill — haos-meta-stape-api)
