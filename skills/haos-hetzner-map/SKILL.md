@@ -12,7 +12,7 @@ metadata:
   version: "1.0"
   autor: Gian Marco Menegussi Scaglianti
   marca: HAOS
-  data_varredura: "2026-06-07"
+  data_varredura: "2026-06-07 (atualizado 2026-06-07 — disco)"
   fonte: varredura read-only ao vivo via SSH (estado REAL, nao de memoria)
 ---
 
@@ -326,6 +326,27 @@ Ativo, jail `sshd` (protege a porta 22).
 - Snapshot memoria Paperclip: semanal (dom 05h).
 - Politica documentada (memoria): manter ~15 backups diarios. DR ja testado (runbook existente).
 
+### Estado pos-saneamento de disco (2026-06-07)
+- **Retencao LOCAL do backup geral reduzida 30 -> 3 dias.** `/opt/scripts/backup.sh`
+  linha 16 `RETENTION_DAYS=3` (poda automatica na linha 139 via
+  `find -mtime +RETENTION_DAYS -delete`, cron diario 3h). `/opt/backups/daily` ~18G.
+  **Backup completo continua indo DIARIO pro Google Drive (copia segura off-site,
+  inalterado).** Causa-raiz: retencao 30 enchia ~86G.
+- **Cap de log de container (`/etc/docker/daemon.json`):** `log-driver json-file` +
+  `max-size 50m` / `max-file 3`. Vale para containers RECRIADOS apos reload do
+  daemon. **Reload PENDENTE de proposito** (aplica naturalmente nos proximos
+  deploys; NAO reiniciar o daemon Docker com ~39 containers a toa). Causa-raiz:
+  Docker NAO rotaciona log por padrao (evolution chegou a 1,2G; wa-monitor 114M —
+  truncados sem restart via `truncate -s 0 $(docker inspect --format '{{.LogPath}}' <ct>)`).
+- **OpenClaw `/opt/openclaw/data/agents` podado 11G -> 1,7G (~9,3G).** Apagados SO
+  `logs_2.sqlite*` (logs de execucao Codex, congelados desde 22/mai) + sessoes/
+  sessions-archive >3 dias. **PRESERVADOS (29/29 cada):** `memories/`,
+  `auth-state.json`, `auth-profiles.json`, `config.toml`, `models.json`, `SOUL.md`,
+  `state_*.sqlite`. Sem restart do OpenClaw. Salvaguardas:
+  `/root/openclaw-agents-config-backup-20260607.tar.gz` +
+  `/root/openclaw-prune-manifest-20260607.log`.
+- Resultado: disco **78% -> 42%** (90G/226G, ~77 GB liberados).
+
 ---
 
 ## Seguranca / Sandbox
@@ -346,7 +367,10 @@ Ativo, jail `sshd` (protege a porta 22).
 5. **Tunnel e remote-managed/local config** (`/etc/cloudflared/config.yml`, tunnel `caf822cd-...`). Alterar ingress = editar o config + restart `cloudflared.service`. NAO mexer no DNS dos 4 hostnames sem coordenar.
 6. **Skills: fonte unica = repo HAOS_CC.** Editar no repo -> `git pull` em `/opt/HAOS_CC` -> rodar `/opt/sync-haos-skills-openclaw.sh`. Editar dentro de container e perda garantida (sobrescrito pelo sync 04h/reboot).
 7. **Secrets: so via broker ou `/opt/secrets/.env` (600).** Nunca colocar chave em codigo/compose/repo. Nunca printar valores; so NOMES.
-8. **Disco em 78%.** Antes de operacoes pesadas (pull de imagem grande, dump), checar `df -h`. Pruning de imagens com cuidado (nao remover imagens em uso por containers parados que serao reusados).
+8. **Disco em 42%** (apos saneamento 07/06; era 78%). Antes de operacoes pesadas (pull de imagem grande, dump), checar `df -h`. Pruning de imagens com cuidado (nao remover imagens em uso por containers parados que serao reusados).
+8a. **Backups locais: retencao 3 dias** (`/opt/scripts/backup.sh` linha 16 `RETENTION_DAYS=3`, poda na linha 139, cron 3h). Drive diario e a copia segura off-site. NAO subir a retencao local sem briefing (foi o que enchia ~86G).
+8b. **Log de container limitado a 50m x 3** via `/etc/docker/daemon.json`. **Reload do daemon esta PENDENTE de proposito** (aplica naturalmente em deploys/recriacoes). **NAO reiniciar o daemon Docker com ~39 containers a toa.** Se um log voltar a crescer, truncar pontual: `truncate -s 0 $(docker inspect --format '{{.LogPath}}' <container>)` (sem restart).
+8c. **Poda de OpenClaw e SEGURA so se restrita a `logs_2.sqlite*` e sessoes/sessions-archive antigas (>3 dias).** NUNCA apagar `memories/`, `auth-state.json`, `auth-profiles.json`, `config.toml`, `models.json`, `SOUL.md`, `state_*.sqlite` em `/opt/openclaw/data/agents`. Backup + manifesto antes (ver secao Backups). Sem restart do OpenClaw.
 9. **Sandbox do Paulo e auditada.** Nao desabilitar guard/audit/alerts nem as regras iptables owner-match sem aprovacao explicita + chuck-norris na call.
 10. **SSH instavel: comandos curtos e individuais.** Evitar pipelines longos numa unica sessao.
 11. **Login Max e root-only** (refresh). Usar `/login` interativo, nao `setup-token`.

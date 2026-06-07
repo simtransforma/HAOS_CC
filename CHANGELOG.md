@@ -1,5 +1,19 @@
 # CHANGELOG HAOS_CC Plugin
 
+## v0.6.1 — 2026-06-07 (doc de disco na haos-hetzner-map)
+
+### Atualizada (skill haos-hetzner-map)
+Documentado o saneamento de disco do Hetzner (78% -> 42%, ~77 GB liberados).
+Sem skills novas. Acrescentado a `haos-hetzner-map/SKILL.md`:
+- Seção Backups: estado pós-saneamento — retenção local do backup geral reduzida
+  30 -> 3 dias (`/opt/scripts/backup.sh` `RETENTION_DAYS=3`), Drive diário segue
+  como cópia segura; cap de log de container via `/etc/docker/daemon.json`
+  (50m x 3, reload pendente de propósito); poda segura do OpenClaw
+  (`/opt/openclaw/data/agents` 11G -> 1,7G, só logs_2.sqlite*/sessões antigas).
+- Regras operacionais 8/8a/8b/8c: disco em 42%, retenção 3 dias, NÃO reiniciar
+  daemon Docker à toa, poda OpenClaw nunca toca memories/auth/config/state.
+- Frontmatter `data_varredura` marcado como atualizado 2026-06-07 (disco).
+
 ## v0.6.0 — 2026-06-07 (mapa do servidor Hetzner)
 
 ### Adicionada (1 skill — haos-hetzner-map)
