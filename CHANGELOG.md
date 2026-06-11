@@ -1,5 +1,8 @@
 # CHANGELOG HAOS_CC Plugin
 
+> Esta skill descreve um padrao generico. Detalhes de infra especificos do
+> ambiente sao mantidos em runtime privado.
+
 ## v0.6.1 — 2026-06-07 (doc de disco na haos-hetzner-map)
 
 ### Atualizada (skill haos-hetzner-map)
