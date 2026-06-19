@@ -50,6 +50,8 @@ Guardar como `[EMPRESA]` — será o nome do projeto.
 | 4 | Copy Real | Nenhum "lorem ipsum"? |
 | 5 | Interações | hover/transition/animation com timing (ms)? |
 | 6 | Referência | Pelo menos uma referência de qualidade (Stripe/Linear)? |
+| 7 | GTM (OBRIGATÓRIO) | Container GTM `GTM-K5DPXJTV` no `<head>` (snippet) + `<noscript>` logo após `<body>`? |
+| 8 | Rodapé institucional | Rodapé com razão social, CNPJ, e-mail de suporte, link único de termos e copyright? |
 
 Corrigir falhas críticas automaticamente. Avisar o que foi corrigido.
 
@@ -93,6 +95,8 @@ Navegação mobile (hambúrguer + drawer) foi incluída?
 FaWhatsapp está nos botões de WhatsApp (não MessageCircle)?
 Zero emojis Unicode visíveis no UI?
 Fallback onError em todas as imagens com URL externa?
+GTM GTM-K5DPXJTV instalado (snippet no <head> + noscript logo após <body>)?
+Rodapé institucional presente (razão social, CNPJ, e-mail de suporte, link único de termos)?
 ```
 
 Se qualquer "não" → enviar prompt de correção antes de fazer deploy.
@@ -104,6 +108,29 @@ Se qualquer "não" → enviar prompt de correção antes de fazer deploy.
 ```
 deploy_project(project_id: [...])
 ```
+
+---
+
+## Passo 6.5 — Verificar GTM no ar (OBRIGATÓRIO)
+
+Projeto Lovable é SPA (render no cliente): o conteúdo não aparece no HTML cru, **mas o GTM fica no shell/`<head>` (server-rendered)**, então dá pra conferir por curl:
+
+```
+curl --compressed <URL> | grep -ac "GTM-K5DPXJTV"
+```
+
+Tem que retornar **2** (snippet do `<head>` + `<noscript>` do `<body>`). Se vier 0 ou 1, o tracking está quebrado → enviar prompt de correção e re-deploy ANTES de entregar. O rodapé é client-rendered (não sai no curl): conferir no source ou no visual.
+
+> O padrão **GTM + rodapé** já vive no **workspace knowledge** do Lovable ("REGRAS OBRIGATÓRIAS PARA TODOS OS PROJETOS"), então todo projeto novo já nasce com eles. O papel desta skill é **CONFERIR**, não confiar cego.
+
+---
+
+## CONVENÇÃO: 1 projeto Lovable = N páginas (rotas)
+
+Um projeto Lovable é **um site**, e pode ter **várias páginas** = **rotas** (file-based routing). Ex.: `/` (home) e `/v2` (variante) vivem no MESMO projeto, servidos no MESMO domínio (`dominio.com/` e `dominio.com/v2`). Não é "um projeto por página".
+
+- Custom domain mapeia **1 host → 1 projeto**. Logo, `/v2` só pode apontar pra um projeto DIFERENTE com um proxy/Worker por path. Variante simples na mesma URL-base = **rota nova no mesmo projeto** (mais simples, sem infra extra).
+- O `<head>`/GTM e o rodapé ficam no layout raiz (`__root`), então valem pra TODAS as rotas de uma vez.
 
 ---
 
