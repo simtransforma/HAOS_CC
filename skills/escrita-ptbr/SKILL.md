@@ -17,6 +17,13 @@ NUNCA use o travessão longo (em-dash, código U+2014). Onde ele caberia, use v�
 
 Em qualquer modo, ao terminar, faça uma 2a passada: releia seu próprio texto e cace o que sobreviveu (sempre sobra algo).
 
+## Travas ao revisar texto dos outros (mudança mínima + marca)
+Quando o texto não é seu (revisar copy, e-mail, doc de outra pessoa), siga estas travas:
+- Mudança mínima: corrija o ERRO, não o estilo. Não reescreva frase que está correta só porque você diria diferente. Não troque o vocabulário do autor por sinônimo "melhor". Preserve ritmo, tom e personalidade. Na dúvida entre duas formas corretas, mantenha a do autor.
+- Preservar placeholders e tokens (NUNCA "corrigir"): não altere, acentue, pluralize nem reformate merge tags e variáveis (%FIRSTNAME%, %EMAIL%, {{nome}}, [[link]]), URLs, domínios, e-mails, código, hashtags, @mentions, IDs, e nomes oficiais de marca/produto/oferta (SIM, EdsonBurger, Editora Mindset, HAU, "Practitioner em PNL Vida 369", "369FLIX"). Se um token parecer ter "erro", é proposital: deixe intacto.
+- Voz da marca (não enrijecer): respeite o tom de cada marca (SIM = público 55+, acolhedor e simples; EdsonBurger = informal e provocador). Corrija o ERRADO, nunca o INFORMAL-PORÉM-CORRETO. Naturalidade e gentileza vêm antes de purismo. Não force ênclise ou mesóclise pra "parecer culto".
+- Compliance (sinalizar, não corrigir): não é função desta skill validar promessa. Mas se notar promessa de cura, garantia de saúde ou garantia de retorno financeiro, registre um ALERTA na saída (categoria compliance) pro humano decidir. Não reescreva nem suavize sozinho.
+
 ## Severidade (priorize nesta ordem)
 - P0 (mata credibilidade): em-dash e símbolos proibidos; erro de concordância grosso ("houveram", "fazem 2 anos"); homófono trocado ("mas/mais", "mau/mal", "a gente/agente"); cara de IA explícita ("Ótima pergunta!", disclaimers de robô).
 - P1 (cheiro óbvio de IA / erro claro): gerundismo, translationese, formalismo cartorial, clichê de IA, crase errada, regência errada, vírgula entre sujeito e verbo.
@@ -134,11 +141,22 @@ Use gerúndio, não "a + infinitivo": ❌ Estou a fazer → ✅ Estou fazendo. V
 
 ---
 
-## Formato de saída (modo REESCREVER)
-1. PROBLEMAS: lista curta do que estava errado (por severidade P0/P1/P2).
+## Formato de saída
+
+Modo REVISAR (revisar texto que já existe). Entregue nesta ordem:
+1. TABELA DE ACHADOS, colunas: # | trecho original | correção | regra ou categoria | severidade.
+2. VERSÃO FINAL: o texto com as correções de severidade "erro" e "inconsistência" aplicadas (sugestões de estilo só se pedirem, ou marcadas à parte), com mudança mínima e placeholders intactos.
+3. CHECKLIST (o de baixo).
+Severidades: erro (viola a norma, corrigir) · inconsistência (certo isolado, mas conflita com outra parte do texto: gênero, pessoa, tempo, capitalização) · sugestão de estilo (opcional, melhora naturalidade) · compliance (promessa sensível: só ALERTA, não corrigir). Se não houver nada: diga "Nenhum erro de português encontrado. Texto aprovado."
+
+Modo REESCREVER (padrão):
+1. PROBLEMAS por severidade P0/P1/P2.
 2. VERSÃO CORRIGIDA: o texto pronto.
 3. O QUE MUDOU: 1 linha por mudança relevante.
-4. (Internamente) 2a passada: releu e zerou em-dash/símbolos e sobras.
+
+Modo ESCREVER: entregue o texto já seguindo todas as regras.
+
+Em todos os modos, faça uma 2a passada interna: releu, zerou em-dash e símbolos proibidos, conferiu placeholders e sobras.
 
 ## Checklist final (rode na ordem antes de entregar)
 1. Zero em-dash (U+2014), en-dash (U+2013) e reticências-caractere (U+2026); zero aspas e apóstrofo curvos. Busca literal por esses códigos.
@@ -156,6 +174,8 @@ Use gerúndio, não "a + infinitivo": ❌ Estou a fazer → ✅ Estou fazendo. V
 13. Frase 12 a 18 palavras com variação; cortar "que", -mente, gordura.
 14. Concreto e específico; clichê morto.
 15. Leitura em voz alta: travou ou soou de robô/de Portugal, reescreva.
+16. Placeholders, variáveis, URLs e nomes oficiais de marca intactos (nenhum "corrigido" por engano).
+17. Ao revisar texto dos outros: mudança mínima respeitada (não reescreveu nem trocou a voz do autor); alerta de compliance registrado se havia promessa sensível.
 
 ## Fontes
 Gramáticas: Bechara (Moderna Gramática), Cunha e Cintra (Nova Gramática), Cegalla (Dicionário de Dificuldades). Manuais: Folha de S.Paulo, Estadão, Senado. Consultório: Ciberdúvidas. Gerundismo: BBC Brasil / Prof. Pasquale. Arquitetura de revisão anti-IA: conorbronsdon/avoid-ai-writing, blader/humanizer. Para persuasão e oferta, ver a skill copywriting (HAOS).
