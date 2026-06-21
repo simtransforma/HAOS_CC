@@ -94,7 +94,9 @@ if __name__ == "__main__":
         payload = json.loads(data) if data.strip() else {}
     except Exception:
         payload = {}
-    user_prompt = payload.get("user_prompt", "") or payload.get("content", "")
-    _capture_prompt(user_prompt, payload.get("session_id", ""))
+    # IMPORTANTE: o hook UserPromptSubmit do Claude Code manda o texto no campo
+    # "prompt" (nao "user_prompt"). Ler "prompt" primeiro, com fallbacks.
+    prompt = payload.get("prompt", "") or payload.get("user_prompt", "") or payload.get("content", "")
+    _capture_prompt(prompt, payload.get("session_id", ""))
     # O hook real continuaria seu roteamento aqui; a captura ja foi feita.
     print(json.dumps({"continue": True}, ensure_ascii=False))
